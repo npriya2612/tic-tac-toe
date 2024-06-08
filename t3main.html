@@ -1,0 +1,236 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width", initial-scale="1">
+	<script>
+		var c=1;
+		function changeText(idno)
+		{
+			var element = document.getElementById(idno);
+			if((element.textContent === '') && ((c%2)===0))
+	{
+		element.textContent= 'X';
+	}
+	else if((element.textContent === '') && ((c%2)===1))
+	{
+		element.textContent= 'O';
+	}
+	c++;
+	winner();
+		}
+		function winner()
+		{
+			var i,j;
+			var count=0;
+			for(j=0;j<3;j++){
+			for(i=1;i<4;i++)
+			{
+				var element= document.getElementById(3*j+i);
+				if(element.textContent === 'X')
+				{
+					count++;
+				}
+			}
+			if(count===3)
+			{
+				document.getElementById('player1').style.display="block";
+				document.getElementById('player01').style.display="block";
+				document.getElementById('player001').style.display="block";
+				break;
+			}
+			count=0;
+		}
+		var i,j;
+			var count=0;
+			for(j=0;j<3;j++){
+			for(i=1;i<4;i++)
+			{
+				var element= document.getElementById(3*j+i);
+				if(element.textContent === 'O')
+				{
+					count++;
+				}
+			}
+			if(count===3)
+			{
+				document.getElementById('player2').style.display="block";
+				document.getElementById('player02').style.display="block";
+				document.getElementById('player002').style.display="block";
+				break;
+			}
+			count=0;
+		}
+		var i,j;
+			var count=0;
+			for(j=-2;j>=0;j--){
+			for(i=1;i<4;i++)
+			{
+				var element= document.getElementById(3*i+j);
+				if(element.textContent === 'O')
+				{
+					count++;
+					window.alert(count);
+				}
+			}
+			if(count===3)
+			{
+				document.getElementById('player2').style.display="block";
+				document.getElementById('player02').style.display="block";
+				document.getElementById('player002').style.display="block";
+				break;
+			}
+			count=0;
+		}
+		var i,j;
+			var count=0;
+			for(j=-2;j>=0;j--){
+			for(i=1;i<4;i++)
+			{
+				var element= document.getElementById(3*i+j);
+				if(element.textContent === 'X')
+				{
+					count++;
+					window.alert(count);
+				}
+			}
+			if(count===3)
+			{
+				document.getElementById('player1').style.display="block";
+				document.getElementById('player01').style.display="block";
+				document.getElementById('player001').style.display="block";
+				break;
+			}
+			count=0;
+		}
+		var e1, e5, e9,e3, e7;
+		e1= document.getElementById('1');
+		e3= document.getElementById('3');
+		e5= document.getElementById('5');
+		e7= document.getElementById('7');
+		e9= document.getElementById('9');
+		if( e1.textContent==='X' && e5.textContent==='X' && e9.textContent==='X')
+		{
+			document.getElementById('player1').style.display="block";
+			document.getElementById('player01').style.display="block";
+			document.getElementById('player001').style.display="block";
+		}
+		if( e1.textContent==='O' && e5.textContent==='O' && e9.textContent==='O')
+		{
+			document.getElementById('player2').style.display="block";
+			document.getElementById('player02').style.display="block";
+			document.getElementById('player002').style.display="block";
+		}
+		if( e3.textContent==='X' && e5.textContent==='X' && e7.textContent==='X')
+		{
+			document.getElementById('player1').style.display="block";
+			document.getElementById('player01').style.display="block";
+			document.getElementById('player001').style.display="block";
+		}
+		if( e3.textContent==='O' && e5.textContent==='O' && e7.textContent==='O')
+		{
+			document.getElementById('player2').style.display="block";
+			document.getElementById('player02').style.display="block";
+			document.getElementById('player002').style.display="block";
+		}
+	}
+	</script>
+<style>
+.grid-container {
+   margin-left: 35%;
+  display: grid;
+  grid-template-columns: 15% 15% 15%;
+  padding: 10px;
+}
+.grid-item {
+  border: 1px solid white;
+  padding: 38px;
+  font-size: 60px;
+  text-align: center;
+  height: 50px;
+  color:white;
+}
+h2{
+	position: absolute;
+	top:150px;
+	left:850px;
+	-webkit-animation:colorchange 5s infinite alternate;
+	font-size: 80px;
+	font-family: arial;
+}
+ @-webkit-keyframes colorchange {
+      0% {
+        
+        color: #ff0000;
+      }
+      
+      10% {
+        
+        color: #ffff00;
+      }
+      
+      20% {
+        
+        color:  #00ff00;
+      }
+      
+      30% {
+        
+        color: red;
+      }
+      
+      40% {
+        
+        color: #660066;
+      }
+      
+      50% {
+        
+        color: #ff6600;
+      }
+      
+      60% {
+        
+        color: white;
+      }
+      
+      70% {
+        
+        color: #2980b9;
+      }
+      80% {
+     
+        color: #f1c40f;
+      }
+      
+      90% {
+     
+        color: #2980b9;
+      }
+      
+      100% {
+        
+        color: pink;
+      }
+    }
+</style>
+</head>
+<body style="background-color: #00001a; text-align:center; padding:20px; font-size:20px;">
+	<h1 id='heading' style="color:white; font-size: 50px;">Tic Tac Toe</h1>
+	<div class="grid-container">
+  <div class="grid-item" id='1' onclick="changeText('1')"></div>
+  <div class="grid-item" id='2' onclick="changeText('2')"></div>
+  <div class="grid-item" id='3' onclick="changeText('3')"></div>  
+  <div class="grid-item" id='4' onclick="changeText('4')"></div>
+  <div class="grid-item" id='5' onclick="changeText('5')"></div>
+  <div class="grid-item" id='6' onclick="changeText('6')"></div>  
+  <div class="grid-item" id='7' onclick="changeText('7')"></div>
+  <div class="grid-item" id='8' onclick="changeText('8')"></div>
+  <div class="grid-item" id='9' onclick="changeText('9')"></div>  
+  <h2 id="player1" style="display: none;">Player 1 wins!!</h2>
+  <h2 id="player2" style="display: none;">Player 2 wins!!</h2>
+  <h2 id="player01" style="display: none;position: absolute; left: 50px; top:150px;">Player 1 </h2>
+  <h2 id="player001" style="display: none;position: absolute; left: 90px; top:235px;">wins!! </h2>
+  <h2 id="player02" style="display: none; position: absolute; left: 50px; top:150px;">Player 2 </h2>
+  <h2 id="player002" style="display: none; position: absolute; left: 90px; top:235px;">wins!!</h2>
+</div>
+</body>
+</html>
